@@ -1,0 +1,662 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   ICTServe Custom CSS - Industry Standards
+   Following BEM methodology and modern CSS practices
+   ============================================ */
+
+@layer base {
+    /* Enhanced focus styles for accessibility (WCAG 2.1 AAA) */
+    :focus-visible {
+        @apply outline-none ring-2 ring-blue-500 ring-offset-2;
+    }
+
+    /* Smooth scrolling for modern browsers */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Prevent layout shift during font loading */
+    html {
+        font-display: swap;
+    }
+
+    /* Improve text rendering */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Prevent horizontal scroll on mobile */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Better form element styling */
+    input, select, textarea {
+        @apply transition-all duration-200;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        @apply ring-2 ring-blue-500 ring-offset-2;
+    }
+
+    /* Screen reader only content */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    .sr-only.focusable:active,
+    .sr-only.focusable:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+    }
+}
+
+@layer components {
+    /* ========================================
+       Logo and Branding Styles
+       ======================================== */
+    .logo-container {
+        @apply flex items-center space-x-3;
+    }
+
+    .logo-primary {
+        @apply h-8 w-auto md:h-10;
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .logo-primary:hover {
+        @apply transform scale-105;
+    }
+
+    .logo-secondary {
+        @apply h-6 w-auto opacity-80;
+    }
+
+    /* ========================================
+       Image Optimization and Responsive Design
+       ======================================== */
+    .responsive-image {
+        @apply w-full h-auto;
+        object-fit: cover;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    .hero-image {
+        @apply responsive-image;
+        max-height: 400px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    /* Card image containers */
+    .card-image-container {
+        @apply relative overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-700;
+        aspect-ratio: 16/9;
+    }
+
+    .card-image {
+        @apply absolute inset-0 responsive-image;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .card-image-container:hover .card-image {
+        @apply transform scale-105;
+    }
+
+    /* ========================================
+       Icon Improvements
+       ======================================== */
+    .service-icon {
+        @apply h-8 w-8 rounded-md flex items-center justify-center;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .service-icon svg {
+        @apply h-5 w-5 text-white;
+        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+    }
+
+    /* ========================================
+       Government Branding (Malaysian Standards)
+       ======================================== */
+    .gov-header {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    }
+
+    .gov-accent {
+        @apply text-blue-600 dark:text-blue-400;
+    }
+
+    /* Enhanced footer with logo integration */
+    .footer-logos {
+        @apply flex items-center justify-center space-x-6 py-4;
+    }
+
+    .footer-logo {
+        @apply h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-200;
+        filter: brightness(0) invert(1);
+    }
+
+    /* ========================================
+       Banner and Hero Section Styles
+       ======================================== */
+    .hero-banner {
+        @apply relative bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600;
+        background-image:
+            radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    }
+
+    .hero-overlay {
+        @apply absolute inset-0 bg-black bg-opacity-20;
+    }
+
+    /* ========================================
+       Modern Card Design with Image Integration
+       ======================================== */
+    .modern-card {
+        @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl;
+        transition: all 0.3s ease-in-out;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .modern-card:hover {
+        @apply transform -translate-y-1;
+    }
+
+    /* ========================================
+       Image Lazy Loading and Optimization
+       ======================================== */
+    .lazy-image {
+        @apply transition-opacity duration-300;
+        opacity: 0;
+    }
+
+    .lazy-image.loaded {
+        opacity: 1;
+    }
+
+    /* Accessibility improvements for images */
+    .decorative-image {
+        @apply select-none pointer-events-none;
+    }
+
+    /* ========================================
+       Form Enhancements
+       ======================================== */
+    .form-group {
+        @apply mb-4;
+    }
+
+    .form-label {
+        @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2;
+    }
+
+    .form-input {
+        @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg;
+        @apply bg-white dark:bg-gray-700 text-gray-900 dark:text-white;
+        @apply focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+        @apply transition-all duration-200;
+    }
+
+    .form-input.error {
+        @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+    }
+
+    .form-input:disabled {
+        @apply bg-gray-100 dark:bg-gray-800 cursor-not-allowed opacity-60;
+    }
+
+    .form-select {
+        @apply form-input appearance-none;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+    }
+
+    .form-textarea {
+        @apply form-input min-h-[100px];
+        resize: vertical;
+    }
+
+    .form-checkbox, .form-radio {
+        @apply h-4 w-4 text-blue-600 border-gray-300 rounded;
+        @apply focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+        @apply transition-all duration-200;
+    }
+
+    .error-message {
+        @apply text-red-600 dark:text-red-400 text-sm mt-1;
+        @apply flex items-center;
+    }
+
+    .error-message::before {
+        content: "⚠";
+        @apply mr-1;
+    }
+
+    .success-message {
+        @apply text-green-600 dark:text-green-400 text-sm mt-1;
+        @apply flex items-center;
+    }
+
+    .success-message::before {
+        content: "✓";
+        @apply mr-1;
+    }
+
+    /* ========================================
+       Button Styles (Enhanced)
+       ======================================== */
+    .btn {
+        @apply inline-flex items-center justify-center px-4 py-2 rounded-lg;
+        @apply font-medium text-sm transition-all duration-200;
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+        @apply disabled:opacity-50 disabled:cursor-not-allowed;
+    }
+
+    .btn-primary {
+        @apply btn bg-blue-600 text-white hover:bg-blue-700;
+        @apply focus:ring-blue-500 shadow-sm hover:shadow-md;
+    }
+
+    .btn-secondary {
+        @apply btn bg-gray-200 text-gray-700 hover:bg-gray-300;
+        @apply dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600;
+        @apply focus:ring-gray-500;
+    }
+
+    .btn-success {
+        @apply btn bg-green-600 text-white hover:bg-green-700;
+        @apply focus:ring-green-500 shadow-sm hover:shadow-md;
+    }
+
+    .btn-danger {
+        @apply btn bg-red-600 text-white hover:bg-red-700;
+        @apply focus:ring-red-500 shadow-sm hover:shadow-md;
+    }
+
+    .btn-outline {
+        @apply btn border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white;
+        @apply focus:ring-blue-500;
+    }
+
+    .btn-lg {
+        @apply px-6 py-3 text-base;
+    }
+
+    .btn-sm {
+        @apply px-3 py-1.5 text-xs;
+    }
+
+    /* ========================================
+       Alert and Notification Styles
+       ======================================== */
+    .alert {
+        @apply p-4 rounded-lg mb-4;
+        @apply flex items-start;
+    }
+
+    .alert-icon {
+        @apply flex-shrink-0 w-5 h-5 mr-3;
+    }
+
+    .alert-info {
+        @apply alert bg-blue-50 dark:bg-blue-900 text-blue-800 dark:text-blue-200;
+        @apply border border-blue-200 dark:border-blue-700;
+    }
+
+    .alert-success {
+        @apply alert bg-green-50 dark:bg-green-900 text-green-800 dark:text-green-200;
+        @apply border border-green-200 dark:border-green-700;
+    }
+
+    .alert-warning {
+        @apply alert bg-yellow-50 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200;
+        @apply border border-yellow-200 dark:border-yellow-700;
+    }
+
+    .alert-error {
+        @apply alert bg-red-50 dark:bg-red-900 text-red-800 dark:text-red-200;
+        @apply border border-red-200 dark:border-red-700;
+    }
+
+    /* ========================================
+       Loading States and Skeletons
+       ======================================== */
+    .skeleton {
+        @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+    }
+
+    .skeleton-text {
+        @apply skeleton h-4 my-2;
+    }
+
+    .skeleton-avatar {
+        @apply skeleton rounded-full w-12 h-12;
+    }
+
+    .spinner {
+        @apply inline-block w-5 h-5 border-2 border-current border-t-transparent rounded-full;
+        animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    .loading-overlay {
+        @apply fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50;
+    }
+
+    /* ========================================
+       Badge and Tag Styles
+       ======================================== */
+    .badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+
+    .badge-primary {
+        @apply badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+    }
+
+    .badge-success {
+        @apply badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+    }
+
+    .badge-warning {
+        @apply badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+    }
+
+    .badge-danger {
+        @apply badge bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200;
+    }
+
+    /* ========================================
+       Mobile-First Responsive Design
+       ======================================== */
+    @screen sm {
+        .logo-primary {
+            @apply h-10;
+        }
+
+        .logo-secondary {
+            @apply h-7;
+        }
+    }
+
+    @screen md {
+        .logo-primary {
+            @apply h-12;
+        }
+
+        .logo-secondary {
+            @apply h-8;
+        }
+    }
+
+    /* Mobile menu styles */
+    .mobile-menu {
+        @apply fixed inset-0 z-50 bg-black bg-opacity-50;
+        @apply transition-opacity duration-300;
+    }
+
+    .mobile-menu.hidden {
+        @apply opacity-0 pointer-events-none;
+    }
+
+    .mobile-menu-panel {
+        @apply fixed top-0 right-0 w-64 h-full bg-white dark:bg-gray-800 shadow-xl;
+        @apply transform transition-transform duration-300;
+    }
+
+    .mobile-menu.hidden .mobile-menu-panel {
+        @apply translate-x-full;
+    }
+
+    /* ========================================
+       Animation Utilities
+       ======================================== */
+    .fade-in {
+        animation: fadeIn 0.3s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .slide-up {
+        animation: slideUp 0.3s ease-out;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .scale-in {
+        animation: scaleIn 0.2s ease-out;
+    }
+
+    @keyframes scaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+@layer utilities {
+    /* ========================================
+       Custom Utility Classes
+       ======================================== */
+
+    /* Image rendering utilities */
+    .img-sharp {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+
+    .img-smooth {
+        image-rendering: auto;
+    }
+
+    /* Shadow utilities for images */
+    .img-shadow-soft {
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    .img-shadow-strong {
+        filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+    }
+
+    /* Performance optimization */
+    .will-change-transform {
+        will-change: transform;
+    }
+
+    .will-change-scroll {
+        will-change: scroll-position;
+    }
+
+    /* Text utilities */
+    .text-balance {
+        text-wrap: balance;
+    }
+
+    .text-pretty {
+        text-wrap: pretty;
+    }
+
+    /* Truncate with tooltip */
+    .truncate-tooltip {
+        @apply truncate;
+        cursor: help;
+    }
+
+    .truncate-tooltip:hover::after {
+        content: attr(title);
+        @apply absolute bg-gray-900 text-white text-xs rounded px-2 py-1 z-10;
+        @apply -bottom-8 left-0;
+    }
+
+    /* Focus ring variants */
+    .focus-ring-blue {
+        @apply focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+    }
+
+    .focus-ring-green {
+        @apply focus:ring-2 focus:ring-green-500 focus:ring-offset-2;
+    }
+
+    .focus-ring-red {
+        @apply focus:ring-2 focus:ring-red-500 focus:ring-offset-2;
+    }
+
+    /* Aspect ratio utilities (for older browsers) */
+    .aspect-16-9 {
+        aspect-ratio: 16/9;
+    }
+
+    .aspect-4-3 {
+        aspect-ratio: 4/3;
+    }
+
+    .aspect-square {
+        aspect-ratio: 1/1;
+    }
+
+    /* Container queries (modern CSS) */
+    @supports (container-type: inline-size) {
+        .container-query {
+            container-type: inline-size;
+        }
+    }
+
+    /* Print utilities */
+    @media print {
+        .no-print {
+            display: none !important;
+        }
+
+        .print-only {
+            display: block !important;
+        }
+
+        .print-break-before {
+            page-break-before: always;
+        }
+
+        .print-break-after {
+            page-break-after: always;
+        }
+    }
+
+    /* Reduced motion support (accessibility) */
+    @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+
+    /* Dark mode color scheme */
+    @media (prefers-color-scheme: dark) {
+        :root {
+            color-scheme: dark;
+        }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        * {
+            border-width: 2px !important;
+        }
+    }
+}
+
+/* ============================================
+   Custom Scrollbar Styles (WebKit browsers)
+   ============================================ */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-lg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* ============================================
+   Selection Styles
+   ============================================ */
+::selection {
+    @apply bg-blue-600 text-white;
+}
+
+::-moz-selection {
+    @apply bg-blue-600 text-white;
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+    body {
+        @apply text-black bg-white;
+    }
+
+    .no-print,
+    header,
+    footer,
+    nav {
+        display: none !important;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+    }
+}
