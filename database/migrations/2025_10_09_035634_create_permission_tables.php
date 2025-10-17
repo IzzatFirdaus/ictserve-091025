@@ -14,8 +14,17 @@ return new class extends Migration
         $teams = config('permission.teams');
         $tableNames = config('permission.table_names');
         $columnNames = config('permission.column_names');
-        $pivotRole = $columnNames['role_pivot_key'] ?? 'role_id';
-        $pivotPermission = $columnNames['permission_pivot_key'] ?? 'permission_id';
+
+        // Type assertions for static analysis
+        if (! is_array($tableNames)) {
+            throw new Exception('Error: config/permission.table_names must be an array.');
+        }
+        if (! is_array($columnNames)) {
+            throw new Exception('Error: config/permission.column_names must be an array.');
+        }
+
+        $pivotRole = isset($columnNames['role_pivot_key']) && is_string($columnNames['role_pivot_key']) ? $columnNames['role_pivot_key'] : 'role_id';
+        $pivotPermission = isset($columnNames['permission_pivot_key']) && is_string($columnNames['permission_pivot_key']) ? $columnNames['permission_pivot_key'] : 'permission_id';
 
         throw_if(empty($tableNames), new Exception('Error: config/permission.php not loaded. Run [php artisan config:clear] and try again.'));
         throw_if($teams && empty($columnNames['team_foreign_key'] ?? null), new Exception('Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.'));

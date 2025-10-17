@@ -31,8 +31,12 @@ class Position extends Model implements Auditable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany<User,Position>
      */
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User,Position>
+     */
     public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
+        /** @var \Illuminate\Database\Eloquent\Relations\HasMany<User,Position> $relation */
         return $this->hasMany(User::class);
     }
 

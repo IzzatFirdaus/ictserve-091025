@@ -11,6 +11,7 @@ class GuestLayout extends Component
      */
     public function render(): \Illuminate\View\View
     {
+        /** @var \Illuminate\View\View $view */
         return view('layouts.guest');
     }
 }

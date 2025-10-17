@@ -21,6 +21,7 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
 {
+    // TODO: Refactor this function to reduce its length below 20 lines as per PHP Insights recommendation.
     public function panel(Panel $panel): Panel
     {
         return $panel

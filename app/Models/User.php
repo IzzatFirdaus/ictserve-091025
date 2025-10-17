@@ -63,8 +63,12 @@ class User extends Authenticatable implements Auditable
         'remember_token',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Department,User>
+     */
     public function headsOfDepartments(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
+        /** @var \Illuminate\Database\Eloquent\Relations\HasMany<Department,User> $relation */
         return $this->hasMany(
             Department::class,
             'head_user_id'

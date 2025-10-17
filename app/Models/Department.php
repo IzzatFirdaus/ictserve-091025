@@ -27,9 +27,15 @@ class Department extends Model implements Auditable
         'is_active',
     ];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User,Department>
+     */
     public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(User::class);
+        /** @var \Illuminate\Database\Eloquent\Relations\HasMany<User,Department> $relation */
+        $relation = $this->hasMany(User::class);
+
+        return $relation;
     }
 
     /**
