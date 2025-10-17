@@ -22,7 +22,7 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->timestamps();
             $table->softDeletes();
-            
+
             // Indexes for better performance
             $table->index(['is_active', 'scheme']);
         });

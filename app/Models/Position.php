@@ -9,7 +9,8 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class Position extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes, \OwenIt\Auditing\Auditable;
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\PositionFactory> */
+    use HasFactory, \OwenIt\Auditing\Auditable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +26,17 @@ class Position extends Model implements Auditable
     ];
 
     /**
+     * Get the users with this position.
+     */
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User,Position>
+     */
+    public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(User::class);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -34,13 +46,5 @@ class Position extends Model implements Auditable
         return [
             'is_active' => 'boolean',
         ];
-    }
-
-    /**
-     * Get the users with this position.
-     */
-    public function users()
-    {
-        return $this->hasMany(User::class);
     }
 }

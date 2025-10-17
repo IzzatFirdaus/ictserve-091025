@@ -13,8 +13,19 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable implements Auditable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable, SoftDeletes, HasRoles, \OwenIt\Auditing\Auditable;
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\UserFactory> */
+    use HasFactory,
+        HasRoles,
+        Notifiable,
+        \OwenIt\Auditing\Auditable,
+        SoftDeletes;
+
+    /**
+     * The UUID for the user.
+     *
+     * @var string|null
+     */
+    protected $uuid;
 
     /**
      * The attributes that are mass assignable.
@@ -52,6 +63,14 @@ class User extends Authenticatable implements Auditable
         'remember_token',
     ];
 
+    public function headsOfDepartments(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(
+            Department::class,
+            'head_user_id'
+        );
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -76,42 +95,10 @@ class User extends Authenticatable implements Auditable
     {
         parent::boot();
 
-        static::creating(function ($user) {
-            if (empty($user->uuid)) {
+        static::creating(function (User $user) {
+            if (! $user->uuid) {
                 $user->uuid = (string) Str::uuid();
             }
         });
-    }
-
-    /**
-     * Get the department that the user belongs to.
-     */
-    public function department()
-    {
-        return $this->belongsTo(Department::class);
-    }
-
-    /**
-     * Get the position that the user holds.
-     */
-    public function position()
-    {
-        return $this->belongsTo(Position::class);
-    }
-
-    /**
-     * Get the grade that the user belongs to.
-     */
-    public function grade()
-    {
-        return $this->belongsTo(Grade::class);
-    }
-
-    /**
-     * Get the departments that this user heads.
-     */
-    public function headsOfDepartments()
-    {
-        return $this->hasMany(Department::class, 'head_user_id');
     }
 }

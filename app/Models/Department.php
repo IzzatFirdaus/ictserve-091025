@@ -9,7 +9,8 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class Department extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes, \OwenIt\Auditing\Auditable;
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\DepartmentFactory> */
+    use HasFactory, \OwenIt\Auditing\Auditable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -26,6 +27,11 @@ class Department extends Model implements Auditable
         'is_active',
     ];
 
+    public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(User::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -36,37 +42,5 @@ class Department extends Model implements Auditable
         return [
             'is_active' => 'boolean',
         ];
-    }
-
-    /**
-     * Get the parent department.
-     */
-    public function parentDepartment()
-    {
-        return $this->belongsTo(Department::class, 'parent_department_id');
-    }
-
-    /**
-     * Get the child departments.
-     */
-    public function childDepartments()
-    {
-        return $this->hasMany(Department::class, 'parent_department_id');
-    }
-
-    /**
-     * Get the head of the department.
-     */
-    public function head()
-    {
-        return $this->belongsTo(User::class, 'head_user_id');
-    }
-
-    /**
-     * Get the users in this department.
-     */
-    public function users()
-    {
-        return $this->hasMany(User::class);
     }
 }
