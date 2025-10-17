@@ -16,22 +16,15 @@
     /* Smooth scrolling for modern browsers */
     html {
         scroll-behavior: smooth;
-    }
 
-    /* Prevent layout shift during font loading */
-    html {
-        font-display: swap;
+        /* font-display is not a valid CSS property for html, remove */
     }
 
     /* Improve text rendering */
     body {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        text-rendering: optimizeLegibility;
-    }
-
-    /* Prevent horizontal scroll on mobile */
-    body {
+        text-rendering: optimizelegibility;
         overflow-x: hidden;
     }
 
@@ -52,7 +45,9 @@
         padding: 0;
         margin: -1px;
         overflow: hidden;
-        clip: rect(0, 0, 0, 0);
+
+    /* Deprecated: clip. Use clip-path instead for modern browsers */
+    clip-path: inset(50%);
         white-space: nowrap;
         border-width: 0;
     }
@@ -63,7 +58,7 @@
         width: auto;
         height: auto;
         overflow: visible;
-        clip: auto;
+    clip-path: none;
         white-space: normal;
     }
 }
@@ -78,6 +73,7 @@
 
     .logo-primary {
         @apply h-8 w-auto md:h-10;
+
         transition: transform 0.2s ease-in-out;
     }
 
@@ -94,13 +90,19 @@
        ======================================== */
     .responsive-image {
         @apply w-full h-auto;
+
         object-fit: cover;
+
+        /* Edge 79+ compatibility: must come before crisp-edges for best support */
         image-rendering: -webkit-optimize-contrast;
+
+        /* Standard property for most browsers */
         image-rendering: crisp-edges;
     }
 
     .hero-image {
         @apply responsive-image;
+
         max-height: 400px;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
@@ -108,11 +110,13 @@
     /* Card image containers */
     .card-image-container {
         @apply relative overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-700;
+
         aspect-ratio: 16/9;
     }
 
     .card-image {
         @apply absolute inset-0 responsive-image;
+
         transition: transform 0.3s ease-in-out;
     }
 
@@ -125,13 +129,15 @@
        ======================================== */
     .service-icon {
         @apply h-8 w-8 rounded-md flex items-center justify-center;
+
         background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
     }
 
     .service-icon svg {
         @apply h-5 w-5 text-white;
-        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
+
+        filter: drop-shadow(0 1px 1px rgb(0 0 0 / 10%));
     }
 
     /* ========================================
@@ -152,6 +158,7 @@
 
     .footer-logo {
         @apply h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-200;
+
         filter: brightness(0) invert(1);
     }
 
@@ -160,9 +167,10 @@
        ======================================== */
     .hero-banner {
         @apply relative bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600;
+
         background-image:
-            radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            radial-gradient(circle at 25% 25%, rgb(255 255 255 / 10%) 0%, transparent 50%),
+            radial-gradient(circle at 75% 75%, rgb(255 255 255 / 10%) 0%, transparent 50%);
     }
 
     .hero-overlay {
@@ -174,8 +182,9 @@
        ======================================== */
     .modern-card {
         @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl;
+
         transition: all 0.3s ease-in-out;
-        border: 1px solid rgba(0, 0, 0, 0.05);
+        border: 1px solid rgb(0 0 0 / 5%);
     }
 
     .modern-card:hover {
@@ -187,6 +196,7 @@
        ======================================== */
     .lazy-image {
         @apply transition-opacity duration-300;
+
         opacity: 0;
     }
 
@@ -227,6 +237,7 @@
 
     .form-select {
         @apply form-input appearance-none;
+
         background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
         background-position: right 0.5rem center;
         background-repeat: no-repeat;
@@ -236,6 +247,7 @@
 
     .form-textarea {
         @apply form-input min-h-[100px];
+
         resize: vertical;
     }
 
@@ -358,6 +370,7 @@
 
     .spinner {
         @apply inline-block w-5 h-5 border-2 border-current border-t-transparent rounded-full;
+
         animation: spin 0.6s linear infinite;
     }
 
@@ -395,7 +408,9 @@
     /* ========================================
        Mobile-First Responsive Design
        ======================================== */
-    @screen sm {
+
+    /* Replaced @screen sm with standard media query for compatibility */
+    @media (min-width: 640px) {
         .logo-primary {
             @apply h-10;
         }
@@ -405,7 +420,8 @@
         }
     }
 
-    @screen md {
+    /* Replaced @screen md with standard media query for compatibility */
+    @media (min-width: 768px) {
         .logo-primary {
             @apply h-12;
         }
@@ -438,23 +454,24 @@
        Animation Utilities
        ======================================== */
     .fade-in {
-        animation: fadeIn 0.3s ease-in;
+        animation: fade-in 0.3s ease-in;
     }
 
-    @keyframes fadeIn {
+    @keyframes fade-in {
         from { opacity: 0; }
         to { opacity: 1; }
     }
 
     .slide-up {
-        animation: slideUp 0.3s ease-out;
+        animation: slide-up 0.3s ease-out;
     }
 
-    @keyframes slideUp {
+    @keyframes slide-up {
         from {
             opacity: 0;
             transform: translateY(20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -462,14 +479,15 @@
     }
 
     .scale-in {
-        animation: scaleIn 0.2s ease-out;
+        animation: scale-in 0.2s ease-out;
     }
 
-    @keyframes scaleIn {
+    @keyframes scale-in {
         from {
             opacity: 0;
             transform: scale(0.95);
         }
+
         to {
             opacity: 1;
             transform: scale(1);
@@ -484,7 +502,10 @@
 
     /* Image rendering utilities */
     .img-sharp {
+        /* Edge 79+ compatibility: must come before crisp-edges for best support */
         image-rendering: -webkit-optimize-contrast;
+
+        /* Standard property for most browsers */
         image-rendering: crisp-edges;
     }
 
@@ -494,11 +515,11 @@
 
     /* Shadow utilities for images */
     .img-shadow-soft {
-        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+        filter: drop-shadow(0 4px 6px rgb(0 0 0 / 10%));
     }
 
     .img-shadow-strong {
-        filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.2));
+        filter: drop-shadow(0 10px 15px rgb(0 0 0 / 20%));
     }
 
     /* Performance optimization */
@@ -512,16 +533,23 @@
 
     /* Text utilities */
     .text-balance {
-        text-wrap: balance;
+    /* text-wrap: balance is not supported in Chrome <114, Firefox, Safari, etc. */
+
+    /* Consider using text-align: justify or manual line breaks for fallback if needed */
+    text-wrap: balance;
     }
 
     .text-pretty {
-        text-wrap: pretty;
+    /* text-wrap: pretty is not supported in Chrome <114, Firefox, Safari, etc. */
+
+    /* Consider using text-align: justify or manual line breaks for fallback if needed */
+    text-wrap: pretty;
     }
 
     /* Truncate with tooltip */
     .truncate-tooltip {
         @apply truncate;
+
         cursor: help;
     }
 
@@ -575,11 +603,17 @@
         }
 
         .print-break-before {
+            /* Fallback for older browsers */
+            /* stylelint-disable-next-line property-no-deprecated */
             page-break-before: always;
+            break-before: page;
         }
 
         .print-break-after {
+            /* Fallback for older browsers */
+            /* stylelint-disable-next-line property-no-deprecated */
             page-break-after: always;
+            break-after: page;
         }
     }
 
@@ -634,10 +668,6 @@
    Selection Styles
    ============================================ */
 ::selection {
-    @apply bg-blue-600 text-white;
-}
-
-::-moz-selection {
     @apply bg-blue-600 text-white;
 }
 
