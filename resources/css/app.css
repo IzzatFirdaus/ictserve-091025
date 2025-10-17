@@ -97,6 +97,10 @@
         image-rendering: -webkit-optimize-contrast;
 
         /* Standard property for most browsers */
+        /* Edge 79+ compatibility: must come before crisp-edges for best support */
+        image-rendering: -webkit-optimize-contrast;
+
+        /* Standard property for most browsers */
         image-rendering: crisp-edges;
     }
 
@@ -504,7 +508,6 @@
     .img-sharp {
         /* Edge 79+ compatibility: must come before crisp-edges for best support */
         image-rendering: -webkit-optimize-contrast;
-
         /* Standard property for most browsers */
         image-rendering: crisp-edges;
     }

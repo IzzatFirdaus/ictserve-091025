@@ -1,15 +1,23 @@
-# Dokumentasi Induk Sistem ICTServe (iServe) v3.0.0
+# Dokumentasi Induk Sistem ICTServe (iServe)
+
+**Versi:** 1.0.0 (SemVer)  
+**Tarikh Kemaskini:** 17 Oktober 2025  
+**Status:** Aktif - Penyeragaman Mengikut D00-D14  
+
+---
 
 ## Maklumat Dokumen
 
-| Atribut              | Nilai                                |
-| -------------------- | ------------------------------------ |
-| **Versi Dokumen**    | 3.0.0                                |
-| **Tarikh Kemaskini** | 6 Oktober 2025                       |
-| **Status**           | Aktif - Versi Pengeluaran            |
-| **Klasifikasi**      | Dokumentasi Teknikal Dalaman         |
-| **Penulis**          | Pasukan Pembangunan ICTServe         |
-| **Sasaran Audiens**  | Pembangun, Pentadbir, Pengguna Akhir |
+| Atribut              | Nilai                                           |
+| -------------------- | ----------------------------------------------- |
+| **Versi Dokumen**    | 1.0.0 (SemVer)                                  |
+| **Tarikh Kemaskini** | 17 Oktober 2025                                 |
+| **Status**           | Aktif - Versi Pengeluaran (D00 Compliance)      |
+| **Klasifikasi**      | Dokumentasi Teknikal Dalaman                    |
+| **Piawaian**         | ISO/IEC/IEEE 12207, ISO/IEC/IEEE 29148          |
+| **Penulis**          | Pasukan Pembangunan ICTServe                     |
+| **Sasaran Audiens**  | Pembangun, Pentadbir, Pengguna Akhir            |
+| **Bahasa**           | Bahasa Melayu dengan istilah Inggeris untuk kejelasan |
 
 ## 1. Pengenalan
 

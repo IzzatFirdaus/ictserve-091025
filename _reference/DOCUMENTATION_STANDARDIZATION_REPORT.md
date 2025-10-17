@@ -1,8 +1,21 @@
-# Laporan Penyeragaman Dokumentasi ICTServe v3.0.0
+# Laporan Penyeragaman Dokumentasi ICTServe
 
-**Tarikh:** 6 Oktober 2025  
-**Status:** Selesai  
-**Versi Sistem:** ICTServe (iServe) v3.0.0
+**Versi:** 1.0.0 (SemVer)  
+**Tarikh:** 17 Oktober 2025  
+**Status:** Aktif - Versi Pengeluaran  
+**Versi Sistem:** ICTServe (iServe) v3.0.0+
+
+---
+
+## Maklumat Dokumen
+
+| Atribut                | Nilai                                           |
+| ---------------------- | ----------------------------------------------- |
+| **Versi**              | 1.0.0                                           |
+| **Tarikh Kemaskini**   | 17 Oktober 2025                                 |
+| **Status**             | Aktif - Penyeragaman Mengikut D00-D14           |
+| **Piawaian Rujukan**   | ISO/IEC/IEEE 12207, ISO/IEC/IEEE 29148, IEEE 1016 |
+| **Bahasa**             | Bahasa Melayu dengan istilah Inggeris           |
 
 ---
 
@@ -135,9 +148,9 @@ Baru → Ditugaskan → Dalam_Proses ↔ Menunggu_Pengguna → Selesai → [Disa
 ### Situasi Awal
 
 - **Isu dilaporkan:**
-    - Dokumen v2.1.0 bertarikh 5 Oktober 2025
-    - Dokumen induk v2.2.0 bertarikh 26 September 2025
-    - Ketidakkonsistenan versi dan tarikh
+  - Dokumen v2.1.0 bertarikh 5 Oktober 2025
+  - Dokumen induk v2.2.0 bertarikh 26 September 2025
+  - Ketidakkonsistenan versi dan tarikh
 
 ### Tindakan Diambil
 
@@ -270,11 +283,11 @@ Setiap entri mengandungi:
 
 - ✅ Tambah prinsip "Single Source of Truth (SSoT)"
 - ✅ Seksyen baharu: "Piawaian Dokumentasi"
-    - Standard autentikasi (LDAP/AD)
-    - Jadual peranan pengguna lengkap
-    - Aliran kerja dan status rasmi
-    - Format metadata dokumen
-    - Peraturan versioning
+  - Standard autentikasi (LDAP/AD)
+  - Jadual peranan pengguna lengkap
+  - Aliran kerja dan status rasmi
+  - Format metadata dokumen
+  - Peraturan versioning
 
 **Manfaat:**
 
@@ -375,11 +388,69 @@ grep "Versi Dokumen" _reference/versions/v2.1.0_*.md
 
 1. `_reference/MASTER_DOCUMENTATION.md` - Fail berlebihan
 
+---
+
+## Penyesuaian D00-D14 Standard (Kemaskini 17 Oktober 2025)
+
+Seiring dengan peningkatan versi dokumentasi, semua fail referensi telah dikemaskini untuk mematuhi piawaian D00-D14 yang dirujuk dalam dokumentasi reka bentuk sistem formal:
+
+### Pemetaan Dokumen Ke D00-D14
+
+#### D00: System Overview
+
+- **Penyesuaian:** `_reference/ICTServe_System_Documentation.md`
+- **Piawaian:** ISO/IEC/IEEE 12207
+- **Butiran:** Gambaran keseluruhan sistem, senibina, modul utama, dan objektif bisnes
+
+#### D02-D03: Business & Software Requirements
+
+- **Penyesuaian:** Flow documentation dalam folder `versions/`
+- **Piawaian:** ISO/IEC/IEEE 29148
+- **Butiran:** Keperluan fungsional dan bukan fungsional untuk modul Helpdesk dan Asset Loan
+
+#### D04: Software Design Document
+
+- **Penyesuaian:** `v2.1.0_Dokumentasi_Reka_Bentuk_Sistem_ICTServe(iServe).md`
+- **Piawaian:** IEEE 1016
+- **Butiran:** Rekabentuk sistem, senibina berlapis, dan integrasi modul
+
+#### D09: Database Documentation
+
+- **Penyesuaian:** `v2.1.0_Dokumentasi_Jadual_Data_Pengguna_Organisasi_Teras_ICTServe(iServe).md`
+- **Piawaian:** ISO 8000 (Data Quality)
+- **Butiran:** Skema pangkalan data, hubungan entiti, dan piawaian kualiti data
+
+#### D12-D14: UI/UX Design Documentation
+
+- **Penyesuaian:** `v2.1.0_Dokumentasi_Reka_Bentuk_ICTServe(iServe).md`
+- **Piawaian:** ISO 9241-210, ISO 9241-110, WCAG 2.2 Level AA
+- **Butiran:** Prinsip reka bentuk, aksesibiliti, dan panduan gaya UI
+
+### Versi Dokumentasi (SemVer)
+
+Semua fail dokumentasi kini menggunakan Semantic Versioning (SemVer) dengan format `MAJOR.MINOR.PATCH`:
+
+| Dokumen                                | Versi Lama | Versi Baru | Catatan                          |
+| -------------------------------------- | ---------- | ---------- | -------------------------------- |
+| README.md                              | -          | 1.0.0      | Updated with D00-D14 mapping     |
+| GLOSSARY.md                            | v3.0.0     | 1.0.0      | SemVer standardization            |
+| DOCUMENTATION_STANDARDIZATION_REPORT   | v3.0.0     | 1.0.0      | Updated with D00-D14 compliance  |
+| ICTServe_System_Documentation.md       | v3.0.0     | 1.0.0      | SemVer standardization            |
+| FUTURE_IMPLEMENTATION_AI_CHATBOT       | v2.10      | 1.0.0      | SemVer standardization            |
+
+### Bahasa & Kejelasan (Malay + English)
+
+Semua dokumentasi mematuhi polisi bahasa:
+
+- **Bahasa Utama:** Bahasa Melayu
+- **Istilah Teknikal:** Inggeris (dengan terjemahan di Glosari jika perlu)
+- **Kejelasan:** Setiap dokumen menyediakan konteks untuk pembaca dengan pelbagai latar belakang teknikal
+
 ### C. Rujukan
 
-- **Semantic Versioning:** https://semver.org/
-- **Mermaid Diagram Syntax:** https://mermaid.live/
-- **Markdown Best Practices:** https://www.markdownguide.org/
+- **Semantic Versioning:** <https://semver.org/>
+- **Mermaid Diagram Syntax:** <https://mermaid.live/>
+- **Markdown Best Practices:** <https://www.markdownguide.org/>
 
 ---
 
