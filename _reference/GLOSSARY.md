@@ -1,21 +1,25 @@
-# Glosari Istilah ICTServe
+# Glosari Istilah Sistem ICTServe (System Glossary)
 
-**Versi:** 1.0.0 (SemVer)  
+**Sistem Helpdesk & ICT Asset Loan MOTAC BPM**  
+**Versi:** 2.0.0 (SemVer)  
 **Tarikh Kemaskini:** 17 Oktober 2025  
-**Status:** Aktif  
-**Piawaian Rujukan:** ISO/IEC/IEEE 29148, ISO 8000, ISO 9001
+**Status:** Aktif - Penyeragaman Mengikut D00-D14  
+**Klasifikasi:** Terhad - Dalaman MOTAC  
+**Penulis:** Pasukan Pembangunan BPM MOTAC  
+**Standard Rujukan:** ISO/IEC/IEEE 29148, ISO 8000, ISO 9001, ISO/IEC/IEEE 12207
 
 ---
 
-## Maklumat Dokumen
+## Maklumat Dokumen (Document Information)
 
 | Atribut                | Nilai                                    |
 | ---------------------- | ---------------------------------------- |
-| **Versi**              | 1.0.0                                    |
+| **Versi**              | 2.0.0                                    |
 | **Tarikh Kemaskini**   | 17 Oktober 2025                          |
 | **Status**             | Aktif - Penyeragaman Mengikut D00-D14    |
-| **Pematuhi**           | ISO/IEC/IEEE 29148, ISO 8000, ISO 9001  |
-| **Bahasa**             | Bahasa Melayu dengan istilah Inggeris    |
+| **Klasifikasi**        | Terhad - Dalaman MOTAC                   |
+| **Pematuhi**           | ISO/IEC/IEEE 29148, ISO 8000, ISO 9001, ISO/IEC/IEEE 12207 |
+| **Bahasa**             | Bahasa Melayu dengan istilah Inggeris untuk kejelasan |
 
 ---
 
@@ -242,8 +246,7 @@ Istilah dan konsep dalam glosari ini mematuhi piawaian berikut:
 
 | Versi | Tarikh          | Perubahan                                                                                           | Penulis                      |
 |:------|:----------------|:----------------------------------------------------------------------------------------------------|:-----------------------------|
-| 3.0.0 | 6 Oktober 2025  | Pengembangan komprehensif dengan istilah domain perniagaan, peranan sistem, dan status aliran kerja | Pasukan Pembangunan ICTServe |
-| 2.0.0 | 17 Oktober 2025 | Penyeragaman mengikut D00-D14, tambah rujukan dokumen dan piawaian, update cross-reference         | Pasukan BPM MOTAC            |
+| 2.0.0 | 17 Oktober 2025 | Penyeragaman mengikut D00-D14, tambah rujukan dokumen D00-D14 dan piawaian, standardisasi cross-reference | Pasukan BPM MOTAC            |
 | 1.0.0 | September 2025  | Versi awal dengan istilah teknikal asas                                                             | Pasukan Pembangunan ICTServe |
 
 ---

@@ -1,0 +1,29 @@
+{
+  "MD013": false,
+  "MD033": {
+    "allowed_elements": [
+      "code-snippet",
+      "div",
+      "span",
+      "h1",
+      "h2",
+      "h3",
+      "h4",
+      "button"
+    ]
+  },
+  "MD024": { "siblings_only": true },
+  "MD046": false,
+  "MD040": false,
+  "MD031": false,
+  "MD051": false,
+  "MD009": false,
+  "MD012": false,
+  "MD007": false,
+  "MD032": false,
+  "MD001": false,
+  "MD029": false,
+  "MD036": false,
+  "MD025": false,
+  "MD034": false
+}

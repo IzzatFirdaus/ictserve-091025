@@ -1,20 +1,44 @@
-# Pelan Implementasi AI Chatbot Menggunakan Ollama untuk ICTServe
+# Pelan Implementasi AI Chatbot Menggunakan Ollama untuk ICTServe (Future AI Chatbot Implementation Plan Using Ollama)
 
+**Sistem Helpdesk & ICT Asset Loan MOTAC BPM - Inisiatif Masa Depan**  
 **Versi:** 1.0.0 (SemVer)  
 **Tarikh Kemaskini:** 17 Oktober 2025  
-**Status:** Aktif - Pelan Masa Depan  
+**Status:** Aktif - Pelan Implementasi Masa Depan  
+**Klasifikasi:** Terhad - Dalaman MOTAC  
+**Penulis:** Pasukan Pembangunan BPM MOTAC  
+**Standard Rujukan:** ISO/IEC/IEEE 29148 (Software Requirements), ISO 8000 (Data Quality)  
 
 ---
 
-## Maklumat Dokumen
+## Maklumat Dokumen (Document Information)
 
 | Atribut                | Nilai                                           |
 | ---------------------- | ----------------------------------------------- |
-| **Versi**              | 1.0.0 (SemVer)                                  |
+| **Versi**              | 1.0.0                                           |
 | **Tarikh Kemaskini**   | 17 Oktober 2025                                 |
 | **Status**             | Aktif - Pelan Implementasi Masa Depan           |
-| **Piawaian**           | ISO/IEC/IEEE 29148 (Software Requirements)      |
-| **Bahasa**             | Bahasa Melayu (Malay) + Inggeris untuk kejelasan  |
+| **Klasifikasi**        | Terhad - Dalaman MOTAC                          |
+| **Pematuhi**           | ISO/IEC/IEEE 29148, ISO 8000                    |
+| **Bahasa**             | Bahasa Melayu (utama), English (teknikal)      |
+
+---
+
+## Sejarah Perubahan (Changelog)
+
+| Versi  | Tarikh          | Perubahan                                      | Penulis       |
+|--------|-----------------|------------------------------------------------|---------------|
+| 1.0.0  | 17 Oktober 2025 | Versi awal pelan implementasi AI Chatbot       | Pasukan BPM   |
+
+---
+
+## Rujukan Dokumen Berkaitan (Related Document References)
+
+- **[D00_SYSTEM_OVERVIEW.md]** - Ringkasan Sistem
+- **[D03_SOFTWARE_REQUIREMENTS_SPECIFICATION.md]** - Spesifikasi Keperluan Perisian
+- **[D09_DATABASE_DOCUMENTATION.md]** - Dokumentasi Pangkalan Data
+- **[D10_SOURCE_CODE_DOCUMENTATION.md]** - Dokumentasi Kod Sumber
+- **[D12_UI_UX_DESIGN_GUIDE.md]** - Panduan Rekabentuk UI/UX
+- **[GLOSSARY.md]** - Glosari Istilah Sistem
 
 ---
 

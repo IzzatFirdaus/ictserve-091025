@@ -1,21 +1,45 @@
-# Laporan Penyeragaman Dokumentasi ICTServe
+# Laporan Penyeragaman Dokumentasi ICTServe (Documentation Standardization Report)
 
+**Sistem Helpdesk & ICT Asset Loan MOTAC BPM**  
 **Versi:** 1.0.0 (SemVer)  
-**Tarikh:** 17 Oktober 2025  
-**Status:** Aktif - Versi Pengeluaran  
-**Versi Sistem:** ICTServe (iServe) v3.0.0+
+**Tarikh Kemaskini:** 17 Oktober 2025  
+**Status:** Aktif - Laporan Penyeragaman Lengkap  
+**Klasifikasi:** Terhad - Dalaman MOTAC  
+**Penulis:** Pasukan Pembangunan BPM MOTAC  
+**Standard Rujukan:** ISO/IEC/IEEE 12207, ISO/IEC/IEEE 29148, ISO/IEC/IEEE 15288, IEEE 1016
 
 ---
 
-## Maklumat Dokumen
+## Maklumat Dokumen (Document Information)
 
 | Atribut                | Nilai                                           |
 | ---------------------- | ----------------------------------------------- |
 | **Versi**              | 1.0.0                                           |
 | **Tarikh Kemaskini**   | 17 Oktober 2025                                 |
-| **Status**             | Aktif - Penyeragaman Mengikut D00-D14           |
-| **Piawaian Rujukan**   | ISO/IEC/IEEE 12207, ISO/IEC/IEEE 29148, IEEE 1016 |
-| **Bahasa**             | Bahasa Melayu dengan istilah Inggeris           |
+| **Status**             | Aktif - Penyeragaman Lengkap Mengikut D00-D14  |
+| **Klasifikasi**        | Terhad - Dalaman MOTAC                          |
+| **Pematuhi**           | ISO/IEC/IEEE 12207, ISO/IEC/IEEE 29148, ISO/IEC/IEEE 15288, IEEE 1016 |
+| **Bahasa**             | Bahasa Melayu (utama), English (teknikal)      |
+
+---
+
+## Sejarah Perubahan (Changelog)
+
+| Versi | Tarikh          | Perubahan                                      | Penulis       |
+|--------|-----------------|------------------------------------------------|---------------|
+| 1.0.0  | 17 Oktober 2025 | Versi awal laporan penyeragaman dokumentasi    | Pasukan BPM   |
+
+---
+
+## Rujukan Dokumen Berkaitan (Related Document References)
+
+- **[D00_SYSTEM_OVERVIEW.md]** - Ringkasan Sistem
+- **[D01_SYSTEM_DEVELOPMENT_PLAN.md]** - Pelan Pembangunan Sistem
+- **[D02_BUSINESS_REQUIREMENTS_SPECIFICATION.md]** - Spesifikasi Keperluan Perniagaan
+- **[D03_SOFTWARE_REQUIREMENTS_SPECIFICATION.md]** - Spesifikasi Keperluan Perisian
+- **[D04_SOFTWARE_DESIGN_DOCUMENT.md]** - Dokumen Rekabentuk Perisian
+- **[GLOSSARY.md]** - Glosari Istilah Sistem
+- **[ICTServe_System_Documentation.md]** - Dokumentasi Induk Sistem
 
 ---
 

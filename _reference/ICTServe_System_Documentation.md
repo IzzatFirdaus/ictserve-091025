@@ -1,25 +1,50 @@
-# Dokumentasi Induk Sistem ICTServe (iServe)
+# Dokumentasi Induk Sistem ICTServe (iServe) (ICTServe Master System Documentation)
 
-**Versi:** 1.0.0 (SemVer)  
+**Sistem Helpdesk & ICT Asset Loan MOTAC BPM**  
+**Versi:** 2.0.0 (SemVer)  
 **Tarikh Kemaskini:** 17 Oktober 2025  
 **Status:** Aktif - Penyeragaman Mengikut D00-D14  
+**Klasifikasi:** Terhad - Dalaman MOTAC  
+**Penulis:** Pasukan Pembangunan BPM MOTAC  
+**Standard Rujukan:** ISO/IEC/IEEE 12207, ISO/IEC/IEEE 29148, ISO/IEC/IEEE 15288  
 
 ---
 
-## Maklumat Dokumen
+## Maklumat Dokumen (Document Information)
 
 | Atribut              | Nilai                                           |
 | -------------------- | ----------------------------------------------- |
-| **Versi Dokumen**    | 1.0.0 (SemVer)                                  |
+| **Versi Dokumen**    | 2.0.0 (SemVer)                                  |
 | **Tarikh Kemaskini** | 17 Oktober 2025                                 |
-| **Status**           | Aktif - Versi Pengeluaran (D00 Compliance)      |
-| **Klasifikasi**      | Dokumentasi Teknikal Dalaman                    |
-| **Piawaian**         | ISO/IEC/IEEE 12207, ISO/IEC/IEEE 29148          |
-| **Penulis**          | Pasukan Pembangunan ICTServe                     |
-| **Sasaran Audiens**  | Pembangun, Pentadbir, Pengguna Akhir            |
-| **Bahasa**           | Bahasa Melayu dengan istilah Inggeris untuk kejelasan |
+| **Status**           | Aktif - Penyeragaman D00-D14 Lengkap            |
+| **Klasifikasi**      | Terhad - Dalaman MOTAC                          |
+| **Pematuhi**         | ISO/IEC/IEEE 12207, ISO/IEC/IEEE 29148, ISO/IEC/IEEE 15288 |
+| **Penulis**          | Pasukan Pembangunan BPM MOTAC                   |
+| **Bahasa**           | Bahasa Melayu (utama) dengan istilah Inggeris   |
 
-## 1. Pengenalan
+---
+
+## Sejarah Perubahan (Changelog)
+
+| Versi  | Tarikh          | Perubahan                                      | Penulis       |
+|--------|-----------------|------------------------------------------------|---------------|
+| 2.0.0  | 17 Oktober 2025 | Penyeragaman mengikut D00-D14, tambah cross-reference lengkap ke dokumen standard | Pasukan BPM   |
+| 1.0.0  | September 2025  | Versi awal dokumentasi induk sistem            | Pasukan BPM   |
+
+---
+
+## Rujukan Dokumen Berkaitan (Related Document References)
+
+- **[D00_SYSTEM_OVERVIEW.md]** - Ringkasan Sistem
+- **[D01_SYSTEM_DEVELOPMENT_PLAN.md]** - Pelan Pembangunan Sistem
+- **[D02_BUSINESS_REQUIREMENTS_SPECIFICATION.md]** - Spesifikasi Keperluan Perniagaan
+- **[D03_SOFTWARE_REQUIREMENTS_SPECIFICATION.md]** - Spesifikasi Keperluan Perisian
+- **[D04_SOFTWARE_DESIGN_DOCUMENT.md]** - Dokumen Rekabentuk Perisian
+- **[D09_DATABASE_DOCUMENTATION.md]** - Dokumentasi Pangkalan Data
+- **[D10_SOURCE_CODE_DOCUMENTATION.md]** - Dokumentasi Kod Sumber
+- **[GLOSSARY.md]** - Glosari Istilah Sistem
+
+---
 
 Dokumen ini berfungsi sebagai pusat rujukan utama untuk semua dokumentasi berkaitan dengan sistem ICTServe (iServe). Ia menyediakan ringkasan sistem dan pautan kepada dokumen-dokumen terperinci yang merangkumi pelbagai aspek sistem, daripada reka bentuk teknikal hingga panduan pengguna.
 
