@@ -9,7 +9,8 @@ use OwenIt\Auditing\Contracts\Auditable;
 
 class Grade extends Model implements Auditable
 {
-    use HasFactory, SoftDeletes, \OwenIt\Auditing\Auditable;
+    /** @use \Illuminate\Database\Eloquent\Factories\HasFactory<\Database\Factories\GradeFactory> */
+    use HasFactory, \OwenIt\Auditing\Auditable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -27,6 +28,17 @@ class Grade extends Model implements Auditable
     ];
 
     /**
+     * Get the users with this grade.
+     */
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User,Grade>
+     */
+    public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(User::class);
+    }
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -38,13 +50,5 @@ class Grade extends Model implements Auditable
             'salary_max' => 'integer',
             'is_active' => 'boolean',
         ];
-    }
-
-    /**
-     * Get the users with this grade.
-     */
-    public function users()
-    {
-        return $this->hasMany(User::class);
     }
 }
