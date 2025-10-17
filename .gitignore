@@ -21,12 +21,6 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
-/config/blade-heroicons.php
-/config/blade-icons.php
-/config/filament.php
-/config/insights.php
-/config/livewire.php
-/config/tinker.php
 /docker
 /lang
 /public/vendor
@@ -34,7 +28,3 @@ yarn-error.log
 /resources/views/vendor
 /sail
 /stubs
-/database/migrations/2025_10_17_032608_create_audits_table.php
-/database/migrations/2025_10_17_032609_create_imports_table.php
-/database/migrations/2025_10_17_032610_create_exports_table.php
-/database/migrations/2025_10_17_032611_create_failed_import_rows_table.php
