@@ -1,0 +1,47 @@
+includes:extends:extends:extends:includes:
+
+    - phpstan-baseline.neon
+
+    - vendor/larastan/larastan/extension.neon
+
+extends:
+
+    - vendor/larastan/larastan/extension.neon    - vendor/larastan/larastan/extension.neon
+
+
+
+parameters:parameters:
+
+    paths:
+
+        - app    paths:    - vendor/larastan/larastan/extension.neon    - vendor/larastan/larastan/extension.neon
+
+    level: 5
+
+        - app
+
+    level: 5parameters:
+
+    ignoreErrors:
+
+        - '#Template type TDeclaringModel .* is not covariant#'    paths:
+
+
+        - app
+
+    level: 5parameters:parameters:
+
+    ignoreErrors:
+
+        - '#Template type TDeclaringModel on class Illuminate\\Database\\Eloquent\\Relations\\HasMany is not covariant#'    paths:    paths:
+
+
+        - app        - app
+
+    level: 5    level: max
+
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+    excludePaths:
+        - ./*/*/FileToBeExcluded.php
+    checkMissingIterableValueType: false

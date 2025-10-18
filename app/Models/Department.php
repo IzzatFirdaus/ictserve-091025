@@ -28,14 +28,13 @@ class Department extends Model implements Auditable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User,Department>
+     * Get the users in this department.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<User, Department>
      */
     public function users(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        /** @var \Illuminate\Database\Eloquent\Relations\HasMany<User,Department> $relation */
-        $relation = $this->hasMany(User::class);
-
-        return $relation;
+        return $this->hasMany(User::class);
     }
 
     /**

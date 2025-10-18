@@ -4,14 +4,13 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class GuestLayout extends Component
+final class GuestLayout extends Component
 {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): \Illuminate\View\View
+    public function render(): \Illuminate\Contracts\View\View
     {
-        /** @var \Illuminate\View\View $view */
         return view('layouts.guest');
     }
 }

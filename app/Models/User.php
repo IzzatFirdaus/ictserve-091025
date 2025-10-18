@@ -64,11 +64,12 @@ class User extends Authenticatable implements Auditable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Department,User>
+     * Get the departments where this user is head.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Department, User>
      */
     public function headsOfDepartments(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        /** @var \Illuminate\Database\Eloquent\Relations\HasMany<Department,User> $relation */
         return $this->hasMany(
             Department::class,
             'head_user_id'
@@ -95,11 +96,11 @@ class User extends Authenticatable implements Auditable
     /**
      * Boot the model.
      */
-    protected static function boot()
+    protected static function boot(): void
     {
         parent::boot();
 
-        static::creating(function (User $user) {
+        static::creating(function (User $user): void {
             if (! $user->uuid) {
                 $user->uuid = (string) Str::uuid();
             }

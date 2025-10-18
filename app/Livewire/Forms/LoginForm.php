@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Form;
 
-class LoginForm extends Form
+final class LoginForm extends Form
 {
     public function __construct(
         public string $email = '',

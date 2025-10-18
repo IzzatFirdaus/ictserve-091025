@@ -1,12 +1,17 @@
-<x-layout.public title="Services - ICTServe">
+<x-layout.public title="{{ __('Services') }} - ICTServe">
+    {{-- Breadcrumbs (WCAG 2.2 SC 2.4.8) --}}
+    <x-breadcrumbs :items="[
+        ['label' => __('Services'), 'url' => null]
+    ]" />
+
     <div class="space-y-8">
         <!-- Page Header -->
         <div class="text-center">
             <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
-                ICT Services
+                {{ __('ICT Services') }}
             </h1>
             <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                Comprehensive ICT services for MOTAC staff and departments
+                {{ __('Comprehensive ICT services for MOTAC staff and departments') }}
             </p>
         </div>
 

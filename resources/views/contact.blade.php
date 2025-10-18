@@ -1,14 +1,22 @@
-<x-layout.public title="Contact - ICTServe">
+<x-layout.public title="{{ __('Contact') }} - ICTServe">
+    {{-- Breadcrumbs (WCAG 2.2 SC 2.4.8) --}}
+    <x-breadcrumbs :items="[
+        ['label' => __('Contact'), 'url' => null]
+    ]" />
+
     <div class="space-y-8">
         <!-- Page Header -->
         <div class="text-center">
             <h1 class="text-3xl font-bold text-gray-900 dark:text-white">
-                Contact ICT Support
+                {{ __('Contact ICT Support') }}
             </h1>
             <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
-                Get in touch with our ICT support team
+                {{ __('Get in touch with our ICT support team') }}
             </p>
         </div>
+
+        {{-- Error Summary (WCAG 2.2 SC 3.3.1) --}}
+        <x-error-summary :errors="$errors" />
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- Contact Information -->

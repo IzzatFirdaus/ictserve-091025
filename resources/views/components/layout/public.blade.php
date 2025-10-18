@@ -54,10 +54,8 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased bg-gray-100 dark:bg-gray-900">
-        <!-- Skip to main content link for accessibility -->
-        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-            Skip to main content
-        </a>
+        <!-- Skip to main content link for accessibility (WCAG 2.2 SC 2.4.1) -->
+        <x-skip-link />
 
         <!-- Header -->
         <header class="gov-header shadow-lg" role="banner">
@@ -92,18 +90,29 @@
                         </div>
                     </div>
 
-                    <!-- Navigation -->
-                    <nav class="hidden md:flex space-x-8" role="navigation" aria-label="Main navigation">
-                        <a href="/" class="text-blue-100 hover:text-white transition-colors font-medium" aria-current="{{ request()->is('/') ? 'page' : 'false' }}">
-                            Home
-                        </a>
-                        <a href="/services" class="text-blue-100 hover:text-white transition-colors font-medium" aria-current="{{ request()->is('services') ? 'page' : 'false' }}">
-                            Services
-                        </a>
-                        <a href="/contact" class="text-blue-100 hover:text-white transition-colors font-medium" aria-current="{{ request()->is('contact') ? 'page' : 'false' }}">
-                            Contact
-                        </a>
-                    </nav>
+                    <!-- Navigation with Language Switcher -->
+                    <div class="hidden md:flex items-center space-x-6">
+                        <nav class="flex space-x-8" role="navigation" aria-label="Main navigation">
+                            <a href="{{ route('welcome') }}"
+                               class="text-blue-100 hover:text-white transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-800 rounded px-2 py-1"
+                               aria-current="{{ request()->routeIs('welcome') ? 'page' : 'false' }}">
+                                {{ __('Home') }}
+                            </a>
+                            <a href="{{ route('services') }}"
+                               class="text-blue-100 hover:text-white transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-800 rounded px-2 py-1"
+                               aria-current="{{ request()->routeIs('services') ? 'page' : 'false' }}">
+                                {{ __('Services') }}
+                            </a>
+                            <a href="{{ route('contact') }}"
+                               class="text-blue-100 hover:text-white transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-800 rounded px-2 py-1"
+                               aria-current="{{ request()->routeIs('contact') ? 'page' : 'false' }}">
+                                {{ __('Contact') }}
+                            </a>
+                        </nav>
+
+                        <!-- Language Switcher -->
+                        <x-language-switcher :currentLocale="app()->getLocale()" />
+                    </div>
 
                     <!-- Mobile Menu Button -->
                     <button type="button"
@@ -228,17 +237,44 @@
                     <!-- Quick Links -->
                     <div>
                         <h3 class="text-lg font-semibold mb-4 flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 mr-2 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path>
                             </svg>
                             Quick Links
                         </h3>
-                        <ul class="space-y-2 text-sm">
-                            <li><a href="/" class="text-gray-300 hover:text-white hover:pl-2 transition-all duration-200">→ Home</a></li>
-                            <li><a href="/services" class="text-gray-300 hover:text-white hover:pl-2 transition-all duration-200">→ Services</a></li>
-                            <li><a href="/contact" class="text-gray-300 hover:text-white hover:pl-2 transition-all duration-200">→ Contact</a></li>
-                            <li><a href="/admin/login" class="text-gray-300 hover:text-blue-400 hover:pl-2 transition-all duration-200">→ Admin Portal</a></li>
+                        <ul class="space-y-2 text-sm" role="list">
+                            <li>
+                                <a href="{{ route('welcome') }}"
+                                   class="text-gray-300 hover:text-white hover:pl-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded px-1">
+                                    → {{ __('Home') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('services') }}"
+                                   class="text-gray-300 hover:text-white hover:pl-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded px-1">
+                                    → {{ __('Services') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('contact') }}"
+                                   class="text-gray-300 hover:text-white hover:pl-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded px-1">
+                                    → {{ __('Contact') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('accessibility') }}"
+                                   class="text-gray-300 hover:text-white hover:pl-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded px-1">
+                                    → {{ __('Accessibility Statement') }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/admin/login"
+                                   class="text-gray-300 hover:text-blue-400 hover:pl-2 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded px-1">
+                                    → Admin Portal
+                                </a>
+                            </li>
                         </ul>
+                    </div>
                     </div>
 
                     <!-- Contact Info -->

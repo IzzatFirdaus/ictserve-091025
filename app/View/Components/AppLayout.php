@@ -4,14 +4,13 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class AppLayout extends Component
+final class AppLayout extends Component
 {
     /**
      * Get the view / contents that represents the component.
      */
-    public function render(): \Illuminate\View\View
+    public function render(): \Illuminate\Contracts\View\View
     {
-        /** @var \Illuminate\View\View $view */
         return view('layouts.app');
     }
 }

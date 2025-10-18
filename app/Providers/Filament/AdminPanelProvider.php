@@ -19,9 +19,8 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
-class AdminPanelProvider extends PanelProvider
+final class AdminPanelProvider extends PanelProvider
 {
-    // TODO: Refactor this function to reduce its length below 20 lines as per PHP Insights recommendation.
     public function panel(Panel $panel): Panel
     {
         return $panel
@@ -29,32 +28,14 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->colors([
-                'primary' => Color::Amber,
-            ])
-            ->discoverResources(
-                in: app_path('Filament/Resources'),
-                for: 'App\Filament\Resources'
-            )
-            ->discoverPages(
-                in: app_path('Filament/Pages'),
-                for: 'App\Filament\Pages'
-            )
-            ->pages([
-                Dashboard::class,
-            ])
-            ->discoverWidgets(
-                in: app_path('Filament/Widgets'),
-                for: 'App\Filament\Widgets'
-            )
-            ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
-            ])
+            ->colors(['primary' => Color::Amber])
+            ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
+            ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
+            ->pages([Dashboard::class])
+            ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\Filament\Widgets')
+            ->widgets([AccountWidget::class, FilamentInfoWidget::class])
             ->middleware($this->getMiddleware())
-            ->authMiddleware([
-                Authenticate::class,
-            ]);
+            ->authMiddleware([Authenticate::class]);
     }
 
     /**

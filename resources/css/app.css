@@ -5,19 +5,60 @@
 /* ============================================
    ICTServe Custom CSS - Industry Standards
    Following BEM methodology and modern CSS practices
+
+   Standards Compliance:
+   - WCAG 2.2 Level AA (Accessibility)
+   - ISO 9241-210 (Human-Centred Design)
+   - Tailwind CSS v3+ conventions
+   - Modern CSS with progressive enhancement
+
+   Last Updated: October 2025
    ============================================ */
 
 @layer base {
-    /* Enhanced focus styles for accessibility (WCAG 2.1 AAA) */
-    :focus-visible {
+    /* Enhanced focus styles for accessibility (WCAG 2.2 Level AA - Success Criterion 2.4.7) */
+    :focus {
         @apply outline-none ring-2 ring-blue-500 ring-offset-2;
     }
 
-    /* Smooth scrolling for modern browsers */
+    :focus-visible {
+        @apply outline-none ring-2 ring-blue-600 ring-offset-2 dark:ring-blue-400;
+    }
+
+    /* High contrast focus for keyboard users */
+    :focus:not(:focus-visible) {
+        @apply outline-none;
+    }
+
+    /* Specific focus styles for buttons and links */
+    a:focus-visible,
+    button:focus-visible {
+        @apply ring-2 ring-blue-600 ring-offset-2 dark:ring-blue-400 dark:ring-offset-gray-900;
+    }
+
+    /* Smooth scrolling for modern browsers (respect prefers-reduced-motion) */
     html {
         scroll-behavior: smooth;
 
-        /* font-display is not a valid CSS property for html, remove */
+        /* Override Tailwind's Preflight to include standard property */
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    /* Respect user's motion preferences (WCAG 2.2 Success Criterion 2.3.3) */
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
     }
 
     /* Improve text rendering */
@@ -34,10 +75,10 @@
     }
 
     input:focus, select:focus, textarea:focus {
-        @apply ring-2 ring-blue-500 ring-offset-2;
+        @apply ring-2 ring-blue-600 ring-offset-2 dark:ring-blue-400 dark:ring-offset-gray-900;
     }
 
-    /* Screen reader only content */
+    /* Screen reader only content (WCAG 2.2 Success Criterion 2.4.1) */
     .sr-only {
         position: absolute;
         width: 1px;
@@ -45,21 +86,36 @@
         padding: 0;
         margin: -1px;
         overflow: hidden;
-
-    /* Deprecated: clip. Use clip-path instead for modern browsers */
-    clip-path: inset(50%);
+        clip-path: inset(50%);
         white-space: nowrap;
         border-width: 0;
     }
 
     .sr-only.focusable:active,
-    .sr-only.focusable:focus {
+    .sr-only.focusable:focus,
+    .focus\:not-sr-only:focus {
         position: static;
         width: auto;
         height: auto;
         overflow: visible;
-    clip-path: none;
+        clip-path: none;
         white-space: normal;
+    }
+
+    /* Skip link styles (WCAG 2.2 Success Criterion 2.4.1 Bypass Blocks) */
+    .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        z-index: 100;
+        padding: 8px;
+        background-color: #2563eb;
+        color: white;
+        text-decoration: none;
+    }
+
+    .skip-link:focus {
+        top: 0;
     }
 }
 
@@ -93,10 +149,6 @@
 
         object-fit: cover;
 
-        /* Edge 79+ compatibility: must come before crisp-edges for best support */
-        image-rendering: -webkit-optimize-contrast;
-
-        /* Standard property for most browsers */
         /* Edge 79+ compatibility: must come before crisp-edges for best support */
         image-rendering: -webkit-optimize-contrast;
 
@@ -228,7 +280,7 @@
         @apply w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg;
         @apply bg-white dark:bg-gray-700 text-gray-900 dark:text-white;
         @apply focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
-        @apply transition-all duration-200;
+        @apply transition-all duration-200 min-h-[44px];
     }
 
     .form-input.error {
@@ -256,7 +308,7 @@
     }
 
     .form-checkbox, .form-radio {
-        @apply h-4 w-4 text-blue-600 border-gray-300 rounded;
+        @apply h-6 w-6 text-blue-600 border-gray-300 rounded;
         @apply focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
         @apply transition-all duration-200;
     }
@@ -288,7 +340,7 @@
         @apply inline-flex items-center justify-center px-4 py-2 rounded-lg;
         @apply font-medium text-sm transition-all duration-200;
         @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
-        @apply disabled:opacity-50 disabled:cursor-not-allowed;
+        @apply disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] min-w-[44px];
     }
 
     .btn-primary {
@@ -322,7 +374,7 @@
     }
 
     .btn-sm {
-        @apply px-3 py-1.5 text-xs;
+        @apply px-3 py-1.5 text-xs min-h-[40px];
     }
 
     /* ========================================
